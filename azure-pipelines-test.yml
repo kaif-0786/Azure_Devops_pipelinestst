@@ -29,10 +29,10 @@ jobs:
   steps:
   - script: echo Hello, job3 world changed!
     displayName: 'Run a one-line script'
-- job: Job3
+- job: Job4
   dependsOn: 
   - Job2
   - Job3
   steps:
-  - script: echo Hello, job3 world changed!
+  - script: echo Hello, job4 world changed!
     displayName: 'Run a one-line script'
