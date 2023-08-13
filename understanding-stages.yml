@@ -22,7 +22,7 @@ stages:
   jobs:
   - job: DevDeployJob
     steps:
-    - bash: echo$(PiplelineLevelVariable)DeployJob
+    - bash: echo $(PiplelineLevelVariable)DeployJob
 - stage: QADeply
   variables: 
     environment: QA
