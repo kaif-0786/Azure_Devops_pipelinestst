@@ -12,33 +12,41 @@ stages:
     steps:
     - bash: echo Build FirstJob
     - bash: echo $(PiplelineLevelVariable)
-  - job: SecondJob
-    steps:
-    - bash: echo Build SecondJob
-- stage: DevDeploy
-  variables: 
-    environment: Dev
-  dependsOn: Build
-  jobs:
-  - job: DevDeployJob
-    steps:
-    - bash: echo $(PiplelineLevelVariable)DeployJob
-- stage: QADeply
-  variables: 
-    environment: QA
-  dependsOn: Build
-  jobs:
-  - job: QADeployJob
-    steps:
-    - bash: echo $(PiplelineLevelVariable)DeployJob
-- stage: ProdDeploy
-  variables: 
-    environment: Prod
-  dependsOn: 
-  - DevDeploy
-  - QADeply
-  jobs:
-  - job: ProdDeployJob
-    steps:
-    - bash: echo $(PiplelineLevelVariable)DeployJob
+    - bash: echo $(Build.BuildNumber)
+    - bash: echo $(Build.BuildId)
+    - bash: echo $(Build.SourceBranchName)
+    - bash: echo $(Build.SourceDirectory)
+    - bash: echo $(System.DefaultWorkingDirectory)
+    - bash: ls -R $(System.DafaultWorkingDirectory)
+    - bash: echo $(Build.SourceBranchName)
+    - bash: echo $(Build.ArtifactStagingDirectory)
+  # - job: SecondJob
+  #   steps:
+  #   - bash: echo Build SecondJob
+# - stage: DevDeploy
+#   variables: 
+#     environment: Dev
+#   dependsOn: Build
+#   jobs:
+#   - job: DevDeployJob
+#     steps:
+#     - bash: echo $(PiplelineLevelVariable)DeployJob
+# - stage: QADeply
+#   variables: 
+#     environment: QA
+#   dependsOn: Build
+#   jobs:
+#   - job: QADeployJob
+#     steps:
+#     - bash: echo $(PiplelineLevelVariable)DeployJob
+# - stage: ProdDeploy
+#   variables: 
+#     environment: Prod
+#   dependsOn: 
+#   - DevDeploy
+#   - QADeply
+#   jobs:
+#   - job: ProdDeployJob
+#     steps:
+#     - bash: echo $(PiplelineLevelVariable)DeployJob
 
