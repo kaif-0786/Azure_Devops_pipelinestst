@@ -27,11 +27,11 @@ stages:
     - bash: ls -R $(Build.ArtifactStagingDirectory)
     - task: CopyFiles@2
       inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        SourceFolder: '/home/vsts/work/1/s'
         Contents: |
           **/*.yaml
           **/*.tf
-        TargetFolder: '$(Build.ArtifactStagingDirectory'
+        TargetFolder: '/home/vsts/work/1/a'
     - bash: ls -R $(Build.ArtifactStagingDirectory)
   #   - task: PublishBuildArtifacts@1
   #     inputs:
